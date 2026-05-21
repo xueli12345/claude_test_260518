@@ -20,7 +20,9 @@
   "homepage": "https://github.com/xueli12345/claude_test_260518#readme",
   "dependencies": {
     "@napi-rs/canvas": "^1.0.0",
+    "archiver": "^8.0.0",
     "jimp": "^1.6.1",
-    "pdfjs-dist": "^4.0.379"
+    "pdfjs-dist": "^4.0.379",
+    "unzipper": "^0.12.3"
   }
 }
