@@ -15,135 +15,265 @@
     justify-content: center;
     padding: 40px 20px;
   }
-  .container {
-    max-width: 1200px;
-    width: 100%;
-  }
+  .container { max-width: 1400px; width: 100%; }
 
   .header {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    margin-bottom: 30px;
-    padding-left: 40px;
+    display: flex; align-items: flex-start; gap: 20px;
+    margin-bottom: 30px; padding-left: 40px;
   }
   .header .dot {
-    width: 24px; height: 24px;
-    background: #1EEF97;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 6px;
+    width: 24px; height: 24px; background: #1EEF97;
+    border-radius: 50%; flex-shrink: 0; margin-top: 12px;
   }
   .header .brand {
-    color: #CDCDD2;
-    font-size: 11px;
-    letter-spacing: 4px;
-    margin-bottom: 8px;
+    color: #CDCDD2; font-size: 11px; letter-spacing: 4px; margin-bottom: 8px;
   }
-  .header h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
-    line-height: 1.3;
-  }
+  .header h1 { font-size: 36px; font-weight: bold; color: #fff; line-height: 1.3; }
   .header h1 span { color: #1EEF97; }
-  .header .sub {
-    font-size: 15px;
-    color: #CDCDD2;
-    margin-top: 8px;
-  }
-  .header .bar {
-    width: 240px; height: 4px;
-    background: #1EEF97;
-    margin-top: 14px;
-  }
+  .header .sub { font-size: 15px; color: #CDCDD2; margin-top: 8px; }
+  .header .bar { width: 240px; height: 4px; background: #1EEF97; margin-top: 14px; }
 
-  .divider-v {
-    width: 4px;
-    background: #442EE0;
-    border-radius: 2px;
-    flex-shrink: 0;
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    padding: 10px 20px; border: 1px solid #373741; border-radius: 6px 6px 0 0;
+    cursor: pointer; font-size: 13px; font-weight: bold; color: #888;
+    background: rgba(255,255,255,0.03); transition: all 0.2s;
   }
+  .tab:hover { color: #CDCDD2; background: rgba(68,46,224,0.15); }
+  .tab.active { color: #1EEF97; background: rgba(30,239,151,0.08); border-color: #1EEF97; border-bottom-color: transparent; }
 
-  .columns {
-    display: grid;
-    grid-template-columns: 1fr 4px 1fr;
-    gap: 30px;
-    margin-bottom: 40px;
-  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
 
-  .col h2 {
-    font-size: 13px;
-    font-weight: bold;
-    color: #1EEF97;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+  .toggle-btn {
+    padding: 6px 14px; border: 1px solid #373741; border-radius: 5px;
+    background: rgba(255,255,255,0.04); color: #888;
+    font-size: 11px; cursor: pointer; transition: all 0.2s;
+    font-family: inherit; white-space: nowrap; user-select: none;
+    margin-left: auto; align-self: center;
   }
+  .toggle-btn:hover {
+    background: rgba(68,46,224,0.2); border-color: #442EE0; color: #CDCDD2;
+  }
+  .toggle-btn.expanded {
+    background: rgba(30,239,151,0.1); border-color: #1EEF97; color: #1EEF97;
+  }
+  .toggle-icon { display: inline-block; width: 14px; text-align: center; }
 
-  .section { margin-bottom: 18px; }
-  .section-title {
-    font-size: 12px;
-    font-weight: bold;
-    color: #1EEF97;
-    margin-bottom: 4px;
-  }
-  .section-title.secondary { color: #442EE0; }
-  .section-title.purple { color: #CDCDD2; }
-  .section-detail {
-    font-size: 11px;
-    color: #CDCDD2;
-    line-height: 1.6;
-    padding-left: 14px;
-    border-left: 2px solid #373741;
-  }
-  .section-detail span {
-    display: inline-block;
-    background: rgba(68,46,224,0.2);
-    padding: 1px 6px;
-    border-radius: 3px;
-    margin: 1px 2px;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 10px;
-    color: #CDCDD2;
-  }
-
+  /* Stats */
   .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    border-top: 1px solid #373741;
-    padding-top: 24px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    border-top: 1px solid #373741; padding-top: 24px; margin-top: 40px;
   }
-  .stat .num {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1EEF97;
+  .stat .num { font-size: 24px; font-weight: bold; color: #1EEF97; }
+  .stat .label { font-size: 11px; color: #888; margin-top: 4px; }
+
+  /* Scenario categories */
+  .cat-section { margin-bottom: 32px; }
+  .cat-title {
+    font-size: 16px; font-weight: bold; color: #1EEF97; margin-bottom: 6px;
+    padding-bottom: 6px; border-bottom: 1px solid #373741;
   }
-  .stat .label {
-    font-size: 11px;
-    color: #888;
-    margin-top: 4px;
+  .cat-title.extended { color: #442EE0; }
+  .cat-desc { font-size: 12px; color: #888; margin-bottom: 16px; }
+
+  /* Scenario card grid */
+  .scenario-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 16px; align-items: start;
   }
+
+  /* Individual scenario card */
+  .sc-card {
+    background: rgba(255,255,255,0.03); border: 1px solid #373741;
+    border-radius: 10px; overflow: hidden; transition: border-color 0.2s;
+  }
+  .sc-card:hover { border-color: #442EE0; }
+
+  .sc-card-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 18px; cursor: pointer; user-select: none;
+    background: rgba(68,46,224,0.1);
+  }
+  .sc-card-header .code {
+    font-size: 16px; font-weight: bold; color: #fff;
+    font-family: 'Consolas', 'Courier New', monospace;
+  }
+  .sc-card-header .name { font-size: 13px; color: #CDCDD2; flex: 1; margin-left: 12px; }
+  .sc-card-header .badge {
+    font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: bold;
+  }
+  .badge.aeb { background: rgba(30,239,151,0.15); color: #1EEF97; }
+  .badge.fcw { background: rgba(68,46,224,0.2); color: #8B7CF7; }
+  .badge.aes { background: rgba(255,180,30,0.15); color: #FFB41E; }
+  .badge.night { background: rgba(100,100,255,0.15); color: #8899FF; }
+  .badge.rain { background: rgba(80,180,255,0.15); color: #50B4FF; }
+  .badge.fog { background: rgba(180,180,200,0.15); color: #AAAACC; }
+
+  .sc-card-body { display: none; padding: 16px 18px; border-top: 1px solid #373741; }
+  .sc-card.open .sc-card-body { display: block; }
+  .sc-card.open .sc-card-header { background: rgba(68,46,224,0.2); }
+
+  .sc-card-body .desc { font-size: 12px; color: #AAA; line-height: 1.7; margin-bottom: 12px; }
+  .sc-card-body .params { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+  .sc-card-body .params th {
+    text-align: left; font-size: 10px; color: #888; padding: 4px 8px;
+    border-bottom: 1px solid #373741; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .sc-card-body .params td {
+    font-size: 12px; padding: 4px 8px; color: #CDCDD2;
+    font-family: 'Consolas', 'Courier New', monospace;
+  }
+  .sc-card-body .svg-wrap {
+    background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px;
+    text-align: center;
+  }
+  .sc-card-body .svg-wrap svg { max-width: 100%; height: auto; }
 
   .footer {
-    margin-top: 24px;
-    font-size: 10px;
-    color: #666;
+    margin-top: 24px; font-size: 10px; color: #666; padding-top: 16px;
+    border-top: 1px solid #373741;
   }
 
   @media (max-width: 768px) {
-    .columns {
-      grid-template-columns: 1fr;
-    }
-    .divider-v {
-      width: 100%; height: 2px;
-      margin: 10px 0;
-    }
-    .stats {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
   }
+
+/* Lightbox */
+.lightbox-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.88); z-index: 10000; align-items: center;
+  justify-content: center; cursor: pointer;
+}
+.lightbox-overlay.show { display: flex; }
+.lightbox-overlay .lightbox-close {
+  position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px;
+  font-weight: bold; cursor: pointer; z-index: 10001; line-height: 1;
+  user-select: none;
+}
+.lightbox-overlay .lightbox-close:hover { color: #1EEF97; }
+.lightbox-img { max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 6px; }
+
+
+  .sc-card-body .img-wrap {
+    background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px;
+    text-align: center; cursor: pointer; position: relative; margin-top: 8px;
+  }
+  .sc-card-body .img-wrap img {
+    max-width: 100%; height: auto; border-radius: 4px; display: block;
+  }
+  .sc-card-body .img-wrap .img-label {
+    display: block; font-size: 10px; color: #555; margin-top: 6px;
+    transition: color 0.2s;
+  }
+  .sc-card-body .img-wrap:hover { background: rgba(0,0,0,0.35); }
+  .sc-card-body .img-wrap:hover .img-label { color: #1EEF97; }
+
+
+  .lang-toggle {
+    position: absolute; top: 16px; right: 20px; z-index: 100;
+    display: flex; align-items: center; gap: 0;
+  }
+  .lang-toggle button {
+    padding: 5px 12px; border: 1px solid #373741; border-radius: 4px;
+    background: rgba(255,255,255,0.04); color: #888;
+    font-size: 11px; cursor: pointer; font-family: inherit;
+    transition: all 0.2s; font-weight: bold; letter-spacing: 1px;
+    display: inline-flex; align-items: center; justify-content: center;
+    line-height: 1.4; height: 26px;
+  }
+  .lang-toggle button:hover { border-color: #442EE0; color: #CDCDD2; }
+
+  /* Lang toggle */
+  .lang-toggle button.lang-btn {
+    padding: 5px 8px; font-weight: bold; letter-spacing: 1px; width: auto; min-width: 32px;
+  }
+
+  /* Theme toggle */
+  .lang-toggle button.theme-btn {
+    padding: 5px 8px; font-weight: normal; letter-spacing: 0; width: auto;
+  }
+  .lang-toggle button.theme-btn svg {
+    display: block; width: 13px; height: 13px;
+  }
+  .lang-toggle button.theme-btn:hover { border-color: #FFB41E; color: #FFB41E; }
+
+  /* ===== Light Theme ===== */
+  body.light-theme {
+    background: #F0F2F5;
+    color: #2C3E50;
+  }
+  body.light-theme .header .brand { color: #64748B; }
+  body.light-theme .header h1 { color: #1A1A2E; }
+  body.light-theme .header h1 span { color: #0D9E5A; }
+  body.light-theme .header .sub { color: #475569; }
+  body.light-theme .header .bar { background: #0D9E5A; }
+  body.light-theme .header .dot { background: #0D9E5A; }
+
+  body.light-theme .tab {
+    background: #FFFFFF; border-color: #D1D5DB; color: #64748B;
+  }
+  body.light-theme .tab:hover { color: #2C3E50; background: #E8F5EE; }
+  body.light-theme .tab.active {
+    color: #0D9E5A; background: #DCF5E8; border-color: #0D9E5A;
+  }
+
+  body.light-theme .toggle-btn {
+    background: #FFFFFF; border-color: #D1D5DB; color: #64748B;
+  }
+  body.light-theme .toggle-btn:hover { background: #F0F2F5; border-color: #0D9E5A; color: #2C3E50; }
+  body.light-theme .toggle-btn.expanded {
+    background: #DCF5E8; border-color: #0D9E5A; color: #0D9E5A;
+  }
+
+  body.light-theme .stats { border-top-color: #D1D5DB; }
+  body.light-theme .stat .num { color: #0D9E5A; }
+  body.light-theme .stat .label { color: #64748B; }
+
+  body.light-theme .cat-title { color: #0D9E5A; border-bottom-color: #D1D5DB; }
+  body.light-theme .cat-title.extended { color: #5B3FE0; }
+  body.light-theme .cat-desc { color: #64748B; }
+
+  body.light-theme .sc-card {
+    background: #FFFFFF; border-color: #DEE2E8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  body.light-theme .sc-card:hover { border-color: #5B3FE0; }
+  body.light-theme .sc-card-header { background: #F8FAFC; }
+  body.light-theme .sc-card-header .code { color: #1A1A2E; }
+  body.light-theme .sc-card-header .name { color: #475569; }
+  body.light-theme .sc-card-body { border-top-color: #DEE2E8; }
+  body.light-theme .sc-card.open .sc-card-header { background: #EEF2FF; }
+  body.light-theme .sc-card-body .desc { color: #475569; }
+  body.light-theme .sc-card-body .params th { color: #64748B; border-bottom-color: #DEE2E8; }
+  body.light-theme .sc-card-body .params td { color: #2C3E50; }
+  body.light-theme .sc-card-body .svg-wrap { background: #F8FAFC; }
+  body.light-theme .sc-card-body .img-wrap { background: #F8FAFC; }
+  body.light-theme .sc-card-body .img-wrap:hover { background: #EEF2FF; }
+  body.light-theme .sc-card-body .img-wrap:hover .img-label { color: #0D9E5A; }
+  body.light-theme .sc-card-body .img-wrap .img-label { color: #94A3B8; }
+
+  body.light-theme .badge.aeb { background: #DCF5E8; color: #0D9E5A; }
+  body.light-theme .badge.fcw { background: #EDE9FE; color: #5B3FE0; }
+  body.light-theme .badge.aes { background: #FEF3C7; color: #B8860D; }
+  body.light-theme .badge.night { background: #E0E7FF; color: #4F46E5; }
+  body.light-theme .badge.rain { background: #E0F2FE; color: #0369A1; }
+  body.light-theme .badge.fog { background: #F1F5F9; color: #64748B; }
+
+  body.light-theme .footer { color: #94A3B8; border-top-color: #D1D5DB; }
+
+  body.light-theme .lang-toggle button {
+    background: #FFFFFF; border-color: #D1D5DB; color: #64748B;
+  }
+  body.light-theme .lang-toggle button:hover { border-color: #5B3FE0; color: #2C3E50; }
+
+  body.light-theme .lang-toggle button.theme-btn:hover { border-color: #B8860D; color: #B8860D; }
+
+  body.light-theme .lightbox-overlay { background: rgba(0,0,0,0.85); }
+  body.light-theme .lightbox-overlay .lightbox-close:hover { color: #0D9E5A; }
+
 </style>
 </head>
 <body>
@@ -151,168 +281,947 @@
 
   <!-- Header -->
   <div class="header">
+<div class="lang-toggle">
+  <button id="langToggle" class="lang-btn" onclick="toggleLang()">EN</button>
+  <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" title="Switch theme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+  </button>
+</div>
     <div class="dot"></div>
     <div>
-      <div class="brand">C A R I A D</div>
-      <h1>C-NCAP 2027 <span>AEB</span> 测试场景总览</h1>
-      <div class="sub">AEB / FCW / AES | 车对弱势道路使用者 + 车对车 | 基础 + 拓展场景</div>
+<h1>C-NCAP 2027 <span>AEB</span> <span class="i18n-text" data-zh="测试场景总览" data-en="Test Scenario Overview">测试场景总览</span></h1>
+      <div class="sub" data-zh="AEB / FCW / AES | 车对弱势道路使用者 + 车对车 | 基础场景(必测) + 拓展场景(抽测) | 含详细参数与场景示意" data-en="AEB / FCW / AES | Vehicle-to-VRU + Vehicle-to-Vehicle | Basic (Mandatory) + Extended (Sampling) | With Parameters &amp; Scenario Diagrams">AEB / FCW / AES | 车对弱势道路使用者 + 车对车 | 基础场景(必测) + 拓展场景(抽测) | 含详细参数与场景示意</div>
       <div class="bar"></div>
     </div>
   </div>
 
-  <!-- Two Columns -->
-  <div class="columns">
-
-    <!-- Left: VRU -->
-    <div class="col">
-      <h2>附录 P — VRU / 弱势道路使用者保护</h2>
-
-      <!-- 车对行人 基础 -->
-      <div class="section">
-        <div class="section-title">车对行人 · 基础场景 (6项 · 权重70%)</div>
-        <div class="section-detail">
-          <span>CPLA</span> 纵向冲突 &nbsp;
-          <span>CPFA</span> 远端横穿 &nbsp;
-          <span>CPNYC</span> 幼儿近端横穿 &nbsp;
-          <span>CPTA-LF</span> 左转横穿 &nbsp;
-          <span>CPTA-RF</span> 右转横穿 &nbsp;
-          <span>CPYCL</span> 幼儿低速
-        </div>
-      </div>
-
-      <!-- 车对行人 拓展 -->
-      <div class="section">
-        <div class="section-title secondary">车对行人 · 拓展场景 (6项 · 权重30%)</div>
-        <div class="section-detail">
-          <span>CPFAr</span> 雨天远端横穿 &nbsp;
-          <span>CPFC-MO</span> 动态遮挡儿童 &nbsp;
-          <span>CPNC-AI</span> 行人干扰儿童 &nbsp;
-          <span>CPFC-BI</span> 二轮车干扰儿童 &nbsp;
-          <span>CPFAh</span> 高速远端横穿 &nbsp;
-          <span>CPLAh</span> 高速纵向
-        </div>
-      </div>
-
-      <!-- 车对二轮车 基础 -->
-      <div class="section">
-        <div class="section-title">车对二轮车 · 基础场景 (6项 · 权重70%)</div>
-        <div class="section-detail">
-          <span>CBLAb</span> 电动自行车纵向(夜) &nbsp;
-          <span>CBOA</span> 电动自行车斜向 &nbsp;
-          <span>CBNA</span> 自行车近端横穿 &nbsp;
-          <span>CSFA</span> 踏板摩托远端横穿 &nbsp;
-          <span>CSTA-LN</span> 左转踏板摩托 &nbsp;
-          <span>CSTA-RN</span> 右转踏板摩托
-        </div>
-      </div>
-
-      <!-- 车对二轮车 拓展 -->
-      <div class="section">
-        <div class="section-title secondary">车对二轮车 · 拓展场景 (10项 · 权重30%)</div>
-        <div class="section-detail">
-          <span>CBLAt</span> 转弯切入 &nbsp;
-          <span>CBLAc</span> 变道切入 &nbsp;
-          <span>CBOFA</span> 斜穿遮挡 &nbsp;
-          <span>CBNA-AI</span> 行人干扰 &nbsp;
-          <span>CSFA-BI</span> 二轮车干扰 &nbsp;
-          <span>CBFA-MO</span> 动态遮挡 &nbsp;
-          <span>CSTAO-RN</span> 右转遮挡 &nbsp;
-          <span>C2S RCPf</span> 右转远端 &nbsp;
-          <span>C2B RCPn</span> 右转近端 &nbsp;
-          <span>CSFhol</span> 直行对向
-        </div>
-      </div>
-
-      <!-- 车对三轮车 -->
-      <div class="section">
-        <div class="section-title">车对三轮车 · 基础场景 (3项)</div>
-        <div class="section-detail">
-          <span>CTRc</span> 切入追尾 &nbsp;
-          <span>CTFA</span> 横穿 &nbsp;
-          <span>CTFT</span> 转弯对撞
-        </div>
-      </div>
-
-      <!-- VRU 功能 -->
-      <div class="section">
-        <div class="section-title purple">功能覆盖</div>
-        <div class="section-detail">AEB + FCW + AES (自动紧急转向/避让)</div>
-      </div>
+  <!-- Stats - always visible summary -->
+  <div class="stats" style="margin-top:0; margin-bottom:24px; border-top:none; padding-top:0;">
+    <div class="stat">
+      <div class="num">47</div>
+      <div class="label" data-zh="总测试场景" data-en="Total Test Scenarios">总测试场景</div>
     </div>
-
-    <!-- Divider -->
-    <div class="divider-v"></div>
-
-    <!-- Right: C2C -->
-    <div class="col">
-      <h2>附录 Q — C2C / 车对车 ADAS 测试</h2>
-
-      <!-- C2C 基础 -->
-      <div class="section">
-        <div class="section-title">基础场景 (6项 · 必测)</div>
-        <div class="section-detail">
-          <span>CCRc</span> 切入追尾 &nbsp;
-          <span>CCRh</span> 高速追尾 &nbsp;
-          <span>CCRb</span> 制动追尾 &nbsp;
-          <span>C2C SCPf</span> 远端横穿 &nbsp;
-          <span>CCFT</span> 转弯对撞 &nbsp;
-          <span>CCRbc</span> 弯道制动
-        </div>
-      </div>
-
-      <!-- C2C 拓展 -->
-      <div class="section">
-        <div class="section-title secondary">拓展场景 (10项 · 抽测验证)</div>
-        <div class="section-detail">
-          <span>CCRsr</span> 雨天追尾 &nbsp;
-          <span>CCRsf</span> 雾天追尾 &nbsp;
-          <span>CCFhos</span> 直行对撞 &nbsp;
-          <span>C2C SCPn</span> 近端横穿 &nbsp;
-          <span>SCPmo</span> 动态遮挡横穿 &nbsp;
-          <span>CCFTf</span> 跟车转弯对撞 &nbsp;
-          <span>LCPf</span>/<span>LCPn</span> 左转横穿 &nbsp;
-          <span>RCPf</span> 右转横穿 &nbsp;
-          <span>SCPso</span> 静态遮挡横穿
-        </div>
-      </div>
-
-      <!-- C2C 速度 -->
-      <div class="section">
-        <div class="section-title purple">测试速度范围</div>
-        <div class="section-detail">基础: 40–120 km/h | 拓展: 30–120 km/h</div>
-      </div>
-
-      <!-- C2C 功能 -->
-      <div class="section">
-        <div class="section-title purple">功能覆盖</div>
-        <div class="section-detail">AEB + FCW + AES + LKA + ELK + DMS + BSD + DOW + RCTB + ISLS + AMAP</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stats -->
-  <div class="stats">
     <div class="stat">
       <div class="num">6+10</div>
-      <div class="label">车对车测试场景 (必测+抽测)</div>
+      <div class="label" data-zh="车对车 (必测+抽测)" data-en="Vehicle-to-Vehicle (Mandatory+Sampling)">车对车 (必测+抽测)</div>
     </div>
     <div class="stat">
       <div class="num">31</div>
-      <div class="label">VRU 测试场景 (行/二轮/三轮)</div>
+      <div class="label" data-zh="VRU 场景 (行/二轮/三轮)" data-en="VRU Scenarios (Pedestrian/2W/3W)">VRU 场景 (行/二轮/三轮)</div>
     </div>
     <div class="stat">
-      <div class="num">0–120 km/h</div>
-      <div class="label">测试速度范围</div>
-    </div>
-    <div class="stat">
-      <div class="num">2027</div>
-      <div class="label">C-NCAP 版本</div>
+      <div class="num">0–120</div>
+      <div class="label" data-zh="测试速度范围 (km/h)" data-en="Test Speed Range (km/h)">测试速度范围 (km/h)</div>
     </div>
   </div>
 
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('c2c-basic')" data-zh="车对车·基础 (6)" data-en="Vehicle-to-Vehicle · Basic (6)">车对车·基础 (6)</div>
+    <div class="tab" onclick="switchTab('c2c-ext')" data-zh="车对车·拓展 (10)" data-en="Vehicle-to-Vehicle · Extended (10)">车对车·拓展 (10)</div>
+    <div class="tab" onclick="switchTab('vru-ped')" data-zh="车对行人 (12)" data-en="Vehicle-to-Pedestrian (12)">车对行人 (12)</div>
+    <div class="tab" onclick="switchTab('vru-2w')" data-zh="车对二轮车 (16)" data-en="Vehicle-to-Two-Wheeler (16)">车对二轮车 (16)</div>
+    <div class="tab" onclick="switchTab('vru-3w')" data-zh="车对三轮车 (3)" data-en="Vehicle-to-Three-Wheeler (3)">车对三轮车 (3)</div>
+    <div class="tab" onclick="switchTab('scoring')" data-zh="评分权重" data-en="Scoring &amp; Weights">评分权重</div>
+    <div class="toggle-btn" id="toggleBtn" onclick="toggleAll()" data-zh-title="展开/折叠当前Tab全部场景" data-en-title="Expand/Collapse all scenarios in current tab" title="展开/折叠当前Tab全部场景">
+      <span class="toggle-icon">+</span> <span class="toggle-label" data-zh="展开全部" data-en="Expand All">展开全部</span>
+    </div>
+  </div>
+
+<!-- ==================== C2C BASIC ==================== -->
+<div class="tab-content active" id="tab-c2c-basic">
+
+<div class="cat-section">
+<div class="cat-title" data-zh="车对车 · 基础场景 (6项 · 必测)" data-en="Vehicle-to-Vehicle · Basic Scenarios (6 Items · Mandatory)">车对车 · 基础场景 (6项 · 必测)</div>
+<div class="cat-desc" data-zh="使用 GVT(Global Vehicle Target) 替代实际 M1 乘用车辆。GVT 可具备 C-V2X 直连通信能力。测试速度覆盖 40–120 km/h。" data-en="Uses GVT (Global Vehicle Target) in place of actual M1 passenger vehicle. GVT may have C-V2X direct communication capability. Test speed range: 40–120 km/h.">使用 GVT(Global Vehicle Target) 替代实际 M1 乘用车辆。GVT 可具备 C-V2X 直连通信能力。测试速度覆盖 40–120 km/h。</div>
+<div class="scenario-grid">
+
+<!-- CCRc -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRc</span><span class="name" data-zh="车辆与切入目标车追尾" data-en="Car-to-Car Rear Cut-in Collision">车辆与切入目标车追尾</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 直线行驶，GVT 在 VUT 右侧邻车道。达到稳定车速后 GVT 向左侧切入至 VUT 车道，切入完成时 TTC=0s（假设 VUT 无响应）。碰撞重叠率 -50%。" data-en="VUT drives straight; GVT is in the adjacent lane on the right. After reaching steady speed, GVT cuts into VUT lane from the left side. TTC=0s when cut-in is complete (assuming no VUT response). Collision overlap rate: -50%.">VUT 直线行驶，GVT 在 VUT 右侧邻车道。达到稳定车速后 GVT 向左侧切入至 VUT 车道，切入完成时 TTC=0s（假设 VUT 无响应）。碰撞重叠率 -50%。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="切入横向位移" data-en="Cut-in Lateral Displacement">切入横向位移</th><th data-zh="碰撞重叠率" data-en="Collision Overlap Rate">碰撞重叠率</th></tr>
+<tr><td>60 / 80</td><td>30 / 40</td><td>2.75 m</td><td>-50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRc.jpg')"><img src="scenario_images/Q_CCRc.jpg" alt="CCRc" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CCRh -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRh</span><span class="name" data-zh="高速目标车追尾 (VT切出)" data-en="High-Speed Car-to-Car Rear Collision (VT Cut-out)">高速目标车追尾 (VT切出)</span>
+  <span class="badge aeb">AEB</span><span class="badge fcw">FCW</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 与 VT 同车道跟车匀速行驶，GVT 在 VT 前方。当 VT 与 GVT 距离达到 B 时，VT 由左侧或右侧切出至相邻车道，暴露前方静止 GVT。GVT 可具备 C-V2X 直连通信能力。碰撞重叠率 100%。" data-en="VUT and VT travel in the same lane at constant speed with VT following; GVT is ahead of VT. When the distance between VT and GVT reaches B, VT cuts out to the left or right adjacent lane, exposing the stationary GVT ahead. GVT may have C-V2X direct communication capability. Collision overlap rate: 100%.">VUT 与 VT 同车道跟车匀速行驶，GVT 在 VT 前方。当 VT 与 GVT 距离达到 B 时，VT 由左侧或右侧切出至相邻车道，暴露前方静止 GVT。GVT 可具备 C-V2X 直连通信能力。碰撞重叠率 100%。</div>
+<table class="params"><tr><th data-zh="VUT & VT速度" data-en="VUT & VT Speed">VUT & VT速度</th><th data-zh="跟车距A(m)" data-en="Following Distance A (m)">跟车距A(m)</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="VT与GVT距离B(m)" data-en="VT-GVT Distance B (m)">VT与GVT距离B(m)</th></tr>
+<tr><td>80</td><td>30</td><td>0</td><td>49</td></tr>
+<tr><td>120</td><td>80</td><td>0</td><td>73</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRh.jpg')"><img src="scenario_images/Q_CCRh.jpg" alt="CCRh" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CCRb -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRb</span><span class="name" data-zh="制动目标车追尾 (夜间)" data-en="Car-to-Car Rear Braking Collision (Night)">制动目标车追尾 (夜间)</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="夜间测试，无路灯辅助照明，VUT 开启近光灯，OV 在对向车道开启远光灯。VUT 与 GVT 同一车道以相同速度匀速行驶，车间时距 1.0s。GVT 以 -4 m/s² 减速至停止。碰撞重叠率 -50%。" data-en="Night test, no street lighting. VUT uses low beam; OV in opposing lane uses high beam. VUT and GVT travel in the same lane at the same constant speed with 1.0s time headway. GVT decelerates at -4 m/s² to a stop. Collision overlap rate: -50%.">夜间测试，无路灯辅助照明，VUT 开启近光灯，OV 在对向车道开启远光灯。VUT 与 GVT 同一车道以相同速度匀速行驶，车间时距 1.0s。GVT 以 -4 m/s² 减速至停止。碰撞重叠率 -50%。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="车间时距" data-en="Time Headway">车间时距</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="距离A(m)" data-en="Distance A (m)">距离A(m)</th><th data-zh="GVT减速度" data-en="GVT Deceleration">GVT减速度</th></tr>
+<tr><td>60</td><td>1.0 s</td><td>60</td><td>55</td><td>-4 m/s²</td></tr>
+<tr><td>80</td><td>1.0 s</td><td>80</td><td>84</td><td>-4 m/s²</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRb.jpg')"><img src="scenario_images/Q_CCRb.jpg" alt="CCRb" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- C2C SCPf -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C SCPf</span><span class="name" data-zh="直行与远端穿行目标车碰撞" data-en="Straight Crossing Path Farside Collision">直行与远端穿行目标车碰撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 与 GVT 路径相互垂直。碰撞位置为 GVT 右侧车长前 1/4 处与 VUT 最前端中点重合。包含静止起步变体：VUT 初始静止，距 GVT 右侧边缘 2.9m。" data-en="VUT and GVT paths are perpendicular. Collision position is at 1/4 of GVT right-side vehicle length from the front, coinciding with the midpoint of VUT front end. Includes a stationary-start variant: VUT initially stationary, 2.9m from GVT right edge.">VUT 与 GVT 路径相互垂直。碰撞位置为 GVT 右侧车长前 1/4 处与 VUT 最前端中点重合。包含静止起步变体：VUT 初始静止，距 GVT 右侧边缘 2.9m。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td data-zh="静止起步 (Start)" data-en="Start from Stop (Start)">静止起步 (Start)</td><td>50</td></tr>
+<tr><td>40</td><td>40</td></tr>
+<tr><td>60</td><td>50</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_SCPf.jpg')"><img src="scenario_images/Q_C2C_SCPf.jpg" alt="C2C SCPf" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_SCPf_Start.jpg')"><img src="scenario_images/Q_C2C_SCPf_Start.jpg" alt="C2C SCPf" loading="lazy"><span class="img-label" data-zh="变体2 — 点击放大" data-en="Variant 2 — Click to enlarge">变体2 — 点击放大</span></div></div></div>
+
+<!-- CCFT -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCFT</span><span class="name" data-zh="转向与对向目标车碰撞" data-en="Car-to-Car Front Turn-Across-Path Collision">转向与对向目标车碰撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 左转，GVT 对向直行。碰撞位置为 GVT 左前角与 VUT 最前端中点重合。VUT 需开启左转向灯（不晚于转向前 2s）。静止起步变体：VUT 行至左前角与 OV 中轴线重合时停止。" data-en="VUT turns left; GVT travels straight in the opposite direction. Collision position is where GVT left-front corner coincides with VUT front-end midpoint. VUT must activate left turn signal (no later than 2s before turning). Stationary-start variant: VUT stops when its left-front corner aligns with OV centerline.">VUT 左转，GVT 对向直行。碰撞位置为 GVT 左前角与 VUT 最前端中点重合。VUT 需开启左转向灯（不晚于转向前 2s）。静止起步变体：VUT 行至左前角与 OV 中轴线重合时停止。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="遮挡车距离A(m)" data-en="Occlusion Vehicle Distance A (m)">遮挡车距离A(m)</th></tr>
+<tr><td data-zh="静止起步" data-en="Start from Stop">静止起步</td><td>50</td><td>4</td></tr>
+<tr><td>20</td><td>30</td><td>4</td></tr>
+<tr><td>30</td><td>50</td><td>7</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCFT.jpg')"><img src="scenario_images/Q_CCFT.jpg" alt="CCFT" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCFT_Start.jpg')"><img src="scenario_images/Q_CCFT_Start.jpg" alt="CCFT" loading="lazy"><span class="img-label" data-zh="变体2 — 点击放大" data-en="Variant 2 — Click to enlarge">变体2 — 点击放大</span></div>
+</div></div>
+
+<!-- CCRbc -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRbc</span><span class="name" data-zh="弯道制动追尾" data-en="Car-to-Car Rear Braking in Curve">弯道制动追尾</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 跟随 GVT 在半径 50m 弯道中央行驶，车间时距 1.0s。GVT 分别以 -2 m/s² 和 -6 m/s² 减速至停止。场地要求干燥、峰值附着系数 > 0.9。" data-en="VUT follows GVT in the center of a 50m-radius curve with 1.0s time headway. GVT decelerates at -2 m/s² and -6 m/s² respectively to a stop. Test surface must be dry with peak friction coefficient > 0.9.">VUT 跟随 GVT 在半径 50m 弯道中央行驶，车间时距 1.0s。GVT 分别以 -2 m/s² 和 -6 m/s² 减速至停止。场地要求干燥、峰值附着系数 > 0.9。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="车间时距" data-en="Time Headway">车间时距</th><th data-zh="GVT减速度" data-en="GVT Deceleration">GVT减速度</th></tr>
+<tr><td>40</td><td>40</td><td>1.0 s</td><td>-2 m/s²</td></tr>
+<tr><td>40</td><td>40</td><td>1.0 s</td><td>-6 m/s²</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRbc.jpg')"><img src="scenario_images/Q_CCRbc.jpg" alt="CCRbc" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+</div></div>
+</div><!-- end tab-c2c-basic -->
+
+<!-- ==================== C2C EXTENDED ==================== -->
+<div class="tab-content" id="tab-c2c-ext">
+
+<div class="cat-section">
+<div class="cat-title extended" data-zh="车对车 · 拓展场景 (10项 · 抽测验证)" data-en="Vehicle-to-Vehicle · Extended Scenarios (10 Items · Sampling Verification)">车对车 · 拓展场景 (10项 · 抽测验证)</div>
+<div class="cat-desc" data-zh="拓展场景需企业提供具备 CNAS 资质的测试报告，随机抽取奇数/偶数项进行验证测试。部分场景涉及雨天、雾天等特殊环境条件。" data-en="Extended scenarios require CNAS-accredited test reports from manufacturers. Odd/even numbered items are randomly selected for verification testing. Some scenarios involve rain, fog, and other special environmental conditions.">拓展场景需企业提供具备 CNAS 资质的测试报告，随机抽取奇数/偶数项进行验证测试。部分场景涉及雨天、雾天等特殊环境条件。</div>
+<div class="scenario-grid">
+
+<!-- CCRsr -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRsr</span><span class="name" data-zh="雨天静止目标追尾" data-en="Car-to-Car Rear Stationary in Rain">雨天静止目标追尾</span>
+  <span class="badge aeb">AEB</span><span class="badge rain" data-zh="雨天" data-en="Rain">雨天</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="模拟雨天环境(1h降雨量 40±10mm)。静止 GVT 在 VUT 行驶路径上，开启示廓灯。环境光照 450-550 Lux。" data-en="Simulated rain conditions (40±10mm/h precipitation). Stationary GVT on VUT travel path with position lamps on. Ambient illumination: 450-550 Lux.">模拟雨天环境(1h降雨量 40±10mm)。静止 GVT 在 VUT 行驶路径上，开启示廓灯。环境光照 450-550 Lux。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="碰撞重叠率" data-en="Collision Overlap Rate">碰撞重叠率</th><th data-zh="GVT状态" data-en="GVT Status">GVT状态</th><th data-zh="降雨量" data-en="Rainfall">降雨量</th></tr>
+<tr><td>40</td><td>-50%</td><td data-zh="静止, 示廓灯" data-en="Stationary, Position Lamps">静止, 示廓灯</td><td>40±10 mm/h</td></tr>
+<tr><td>60</td><td>50%</td><td data-zh="静止, 示廓灯" data-en="Stationary, Position Lamps">静止, 示廓灯</td><td>40±10 mm/h</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRsr.jpg')"><img src="scenario_images/Q_CCRsr.jpg" alt="CCRsr" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CCRsf -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCRsf</span><span class="name" data-zh="雾天静止目标追尾" data-en="Car-to-Car Rear Stationary in Fog">雾天静止目标追尾</span>
+  <span class="badge aeb">AEB</span><span class="badge fog" data-zh="雾天" data-en="Fog">雾天</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="模拟雾天环境(能见度 ≤ 50m)。静止 GVT 在 VUT 行驶路径上，开启示廓灯。环境光照 150-250 Lux。" data-en="Simulated fog conditions (visibility ≤ 50m). Stationary GVT on VUT travel path with position lamps on. Ambient illumination: 150-250 Lux.">模拟雾天环境(能见度 ≤ 50m)。静止 GVT 在 VUT 行驶路径上，开启示廓灯。环境光照 150-250 Lux。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="碰撞重叠率" data-en="Collision Overlap Rate">碰撞重叠率</th><th data-zh="GVT状态" data-en="GVT Status">GVT状态</th><th data-zh="能见度" data-en="Visibility">能见度</th></tr>
+<tr><td>40</td><td>-50%</td><td data-zh="静止, 示廓灯" data-en="Stationary, Position Lamps">静止, 示廓灯</td><td>≤ 50m</td></tr>
+<tr><td>60</td><td>50%</td><td data-zh="静止, 示廓灯" data-en="Stationary, Position Lamps">静止, 示廓灯</td><td>≤ 50m</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCRsf.jpg')"><img src="scenario_images/Q_CCRsf.jpg" alt="CCRsf" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CCFhos -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCFhos</span><span class="name" data-zh="直行对向目标车碰撞" data-en="Car-to-Car Front Head-on Straight">直行对向目标车碰撞</span>
+  <span class="badge aes">AES</span><span class="badge fcw">FCW</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="GVT 在车道中央直线行驶，VUT 对向行驶，重叠率 50%。GVT 可具备 C-V2X 直连通信能力且具备互信能力。" data-en="GVT drives straight in the lane center; VUT travels in the opposite direction. Overlap rate: 50%. GVT may have C-V2X direct communication and mutual trust capability.">GVT 在车道中央直线行驶，VUT 对向行驶，重叠率 50%。GVT 可具备 C-V2X 直连通信能力且具备互信能力。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="重叠率" data-en="Overlap Rate">重叠率</th></tr>
+<tr><td>60 / 80</td><td>40 / 60</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCFhos.jpg')"><img src="scenario_images/Q_CCFhos.jpg" alt="CCFhos" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- C2C SCPn -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C SCPn</span><span class="name" data-zh="直行近端穿行目标车碰撞" data-en="Straight Crossing Path Nearside Collision">直行近端穿行目标车碰撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 与 GVT 路径相互垂直。碰撞位置为 GVT 左侧车长前 1/4 处与 VUT 最前端中点重合。" data-en="VUT and GVT paths are perpendicular. Collision position is at 1/4 of GVT left-side vehicle length from the front, coinciding with the midpoint of VUT front end.">VUT 与 GVT 路径相互垂直。碰撞位置为 GVT 左侧车长前 1/4 处与 VUT 最前端中点重合。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td>50 / 60</td><td>40 / 50</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_SCPn.jpg')"><img src="scenario_images/Q_C2C_SCPn.jpg" alt="C2C SCPn" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- SCPmo -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C SCPmo</span><span class="name" data-zh="动态遮挡横穿目标车碰撞" data-en="Straight Crossing Path with Moving Obstruction">动态遮挡横穿目标车碰撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="三车场景：VUT、VT、GVT。VT 路径在 GVT 右侧与之平行，VT 以 -4 m/s² 减速至停止（车头距 VUT 左侧 5m）。正式测试前进行误作用预测试（无 GVT，VUT=50km/h）。" data-en="Three-vehicle scenario: VUT, VT, GVT. VT path is parallel to and to the right of GVT. VT decelerates at -4 m/s² to a stop (front end 5m from VUT left side). False-positive pre-test conducted before formal testing (no GVT, VUT=50km/h).">三车场景：VUT、VT、GVT。VT 路径在 GVT 右侧与之平行，VT 以 -4 m/s² 减速至停止（车头距 VUT 左侧 5m）。正式测试前进行误作用预测试（无 GVT，VUT=50km/h）。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th><th data-zh="VT速度" data-en="VT Speed">VT速度</th><th data-zh="VT减速度" data-en="VT Deceleration">VT减速度</th></tr>
+<tr><td>50 / 60</td><td>40 / 50</td><td>30 / 40</td><td>-4 m/s²</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_SCPmo.jpg')"><img src="scenario_images/Q_C2C_SCPmo.jpg" alt="C2C SCPmo" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CCFTf -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CCFTf</span><span class="name" data-zh="跟车转向对向目标车碰撞" data-en="Car-to-Car Front Turn-Across-Path Following">跟车转向对向目标车碰撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 跟随 VT 匀速行驶（车间时距 1.0s，重叠率 75%）随后左转，GVT 对向直行。VUT 需开启左转向灯（不晚于转向前 2s）。转向路径参考 CCFT 参数表。" data-en="VUT follows VT at constant speed (1.0s time headway, 75% overlap), then turns left; GVT travels straight in opposite direction. VUT must activate left turn signal (no later than 2s before turning). Turning path references CCFT parameter table.">VUT 跟随 VT 匀速行驶（车间时距 1.0s，重叠率 75%）随后左转，GVT 对向直行。VUT 需开启左转向灯（不晚于转向前 2s）。转向路径参考 CCFT 参数表。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td>20 / 30</td><td>40 / 50</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_CCFTf.jpg')"><img src="scenario_images/Q_CCFTf.jpg" alt="CCFTf" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- LCPf / LCPn -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C LCPf / LCPn</span><span class="name" data-zh="左转横穿(远端/近端)" data-en="Left-turn Crossing Path (Farside/Nearside)">左转横穿(远端/近端)</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 左转，GVT 从远端(LCPf)或近端(LCPn)横穿。" data-en="VUT turns left; GVT crosses from farside (LCPf) or nearside (LCPn).">VUT 左转，GVT 从远端(LCPf)或近端(LCPn)横穿。</div>
+<table class="params"><tr><th data-zh="场景" data-en="Scenario">场景</th><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td>LCPf (远端)</td><td>20 / 30</td><td>40 / 50</td></tr>
+<tr><td>LCPn (近端)</td><td>20 / 30</td><td>40 / 50</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_LCPf.jpg')"><img src="scenario_images/Q_C2C_LCPf.jpg" alt="C2C LCP" loading="lazy"><span class="img-label" data-zh="图1: LCPf 远端横穿 — 点击放大" data-en="Fig.1: LCPf Farside Crossing — Click to enlarge">图1: LCPf 远端横穿 — 点击放大</span></div>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_LCPn.jpg')"><img src="scenario_images/Q_C2C_LCPn.jpg" alt="C2C LCP" loading="lazy"><span class="img-label" data-zh="图2: LCPn 近端横穿 — 点击放大" data-en="Fig.2: LCPn Nearside Crossing — Click to enlarge">图2: LCPn 近端横穿 — 点击放大</span></div></div></div>
+
+<!-- RCPf -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C RCPf</span><span class="name" data-zh="右转远端横穿" data-en="Right-turn Crossing Path Farside">右转远端横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 右转，GVT 从远端横穿。VUT 需在转向开始前 2s 开启右转向灯。" data-en="VUT turns right; GVT crosses from the farside. VUT must activate right turn signal at least 2s before steering begins.">VUT 右转，GVT 从远端横穿。VUT 需在转向开始前 2s 开启右转向灯。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td>10 / 20</td><td>20 / 40</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_RCPf.jpg')"><img src="scenario_images/Q_C2C_RCPf.jpg" alt="C2C RCPf" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- SCPso -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2C SCPso</span><span class="name" data-zh="静态遮挡横穿" data-en="Straight Crossing Path with Stationary Obstruction">静态遮挡横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="静态遮挡物（如护栏、绿化带）遮挡后 GVT 横穿。护栏要求：金属材质，横杆高度 0.6-0.8m，总长度 ≥ 20m。" data-en="GVT crosses after being obscured by static obstructions (e.g., guardrails, green belts). Guardrail requirements: metal material, crossbar height 0.6-0.8m, total length ≥ 20m.">静态遮挡物（如护栏、绿化带）遮挡后 GVT 横穿。护栏要求：金属材质，横杆高度 0.6-0.8m，总长度 ≥ 20m。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="GVT速度" data-en="GVT Speed">GVT速度</th></tr>
+<tr><td>50 / 60</td><td>40 / 50</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/Q_C2C_SCPso.jpg')"><img src="scenario_images/Q_C2C_SCPso.jpg" alt="C2C SCPso" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+</div></div>
+</div><!-- end tab-c2c-ext -->
+<!-- ==================== VRU: PEDESTRIAN ==================== -->
+<div class="tab-content" id="tab-vru-ped">
+
+<div class="cat-section">
+<div class="cat-title" data-zh="车对行人 · 基础场景 (6项 · 权重70%)" data-en="Vehicle-to-Pedestrian · Basic Scenarios (6 Items · Weight 70%)">车对行人 · 基础场景 (6项 · 权重70%)</div>
+<div class="cat-desc" data-zh="在夜间/白天条件下测试 AEB 对行人的检测与响应能力。碰撞位置均为车辆宽度的25%处。" data-en="Tests AEB pedestrian detection and response capability under night/day conditions. Collision position is at 25% of vehicle width.">在夜间/白天条件下测试 AEB 对行人的检测与响应能力。碰撞位置均为车辆宽度的25%处。</div>
+<div class="scenario-grid">
+
+<!-- CPLA -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPLA</span><span class="name" data-zh="车对行人纵向冲突" data-en="Car-to-Pedestrian Longitudinal Collision">车对行人纵向冲突</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="夜间测试，无路灯辅助照明。行人以 5 km/h 与 VUT 同向移动（加速1m，匀速10m）。OV 在 VUT 左侧邻车道，间距 3.5m，OV 车头与碰撞点平齐，开启远光灯。碰撞位置在车辆宽度 25% 处（&quot;C&quot; 点）。" data-en="Night test, no street lighting. Pedestrian moves at 5 km/h in the same direction as VUT (accelerates 1m, constant speed 10m). OV is in the adjacent left lane, 3.5m spacing, OV front aligned with collision point, high beam on. Collision position at 25% of vehicle width (point &quot;C&quot;).">夜间测试，无路灯辅助照明。行人以 5 km/h 与 VUT 同向移动（加速1m，匀速10m）。OV 在 VUT 左侧邻车道，间距 3.5m，OV 车头与碰撞点平齐，开启远光灯。碰撞位置在车辆宽度 25% 处（"C" 点）。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="PTA速度 (km/h)" data-en="PTA Speed (km/h)">PTA速度 (km/h)</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th><th data-zh="光照" data-en="Lighting">光照</th></tr>
+<tr><td>20 / 40 / 60 / 80</td><td data-zh="5 (匀速)" data-en="5 (Constant)">5 (匀速)</td><td>25%</td><td data-zh="VUT近光灯 + OV远光灯" data-en="VUT Low Beam + OV High Beam">VUT近光灯 + OV远光灯</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPLA.jpg')"><img src="scenario_images/P_CPLA.jpg" alt="CPLA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CPFA -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPFA</span><span class="name" data-zh="车对行人远端横穿冲突" data-en="Car-to-Pedestrian Farside Crossing Collision">车对行人远端横穿冲突</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="夜间测试，VUT 开启近光灯。行人从远端（VUT 行驶方向的右侧）横穿，加速 6m 到达碰撞点时速度达到 10 km/h。行进方向与车辆行驶方向垂直。" data-en="Night test, VUT uses low beam. Pedestrian crosses from the farside (right side of VUT travel direction), accelerates over 6m to reach 10 km/h at the collision point. Travel direction is perpendicular to vehicle travel direction.">夜间测试，VUT 开启近光灯。行人从远端（VUT 行驶方向的右侧）横穿，加速 6m 到达碰撞点时速度达到 10 km/h。行进方向与车辆行驶方向垂直。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="PTA速度 (km/h)" data-en="PTA Speed (km/h)">PTA速度 (km/h)</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="10 (匀加速)" data-en="10 (Uniform Accel.)">10 (匀加速)</td><td>25%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPFA.jpg')"><img src="scenario_images/P_CPFA.jpg" alt="CPFA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CPNYC -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPNYC</span><span class="name" data-zh="车对幼儿近端横穿冲突" data-en="Car-to-Young-Child Nearside Crossing Collision">车对幼儿近端横穿冲突</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="白天和夜间测试，夜间 VUT 开启近光灯。幼儿目标从近端横穿，加速 S1=1m 至 5 km/h，再匀速 S2=3m 到达碰撞点。行进方向与车辆行驶方向垂直。正式试验前用 40km/h 进行误作用测试（幼儿在距 VUT 右侧 1m 处停止，TTC=1.2s）。" data-en="Day and night test; VUT uses low beam at night. Young child target crosses from the nearside, accelerates S1=1m to 5 km/h, then constant speed S2=3m to reach collision point. Travel direction is perpendicular. False-positive pre-test at 40km/h before formal testing (child stops 1m from VUT right side, TTC=1.2s).">白天和夜间测试，夜间 VUT 开启近光灯。幼儿目标从近端横穿，加速 S1=1m 至 5 km/h，再匀速 S2=3m 到达碰撞点。行进方向与车辆行驶方向垂直。正式试验前用 40km/h 进行误作用测试（幼儿在距 VUT 右侧 1m 处停止，TTC=1.2s）。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="PTYC速度 (km/h)" data-en="PTYC Speed (km/h)">PTYC速度 (km/h)</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th><th data-zh="误作用预测试" data-en="False-Positive Pre-Test">误作用预测试</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="5 (匀加速→匀速)" data-en="5 (Accel.→Constant)">5 (匀加速→匀速)</td><td>25%</td><td>40km/h, TTC=1.2s</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPNYC.jpg')"><img src="scenario_images/P_CPNYC.jpg" alt="CPNYC" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CPTA-LF -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPTA-LF</span><span class="name" data-zh="车辆左转对远端行人冲突" data-en="Vehicle Left-Turn Farside Pedestrian Collision">车辆左转对远端行人冲突</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="白天和夜间测试。VUT 左转，行人从左侧向右侧横穿。行人加速 1.5m 至 6.5 km/h，匀速 1.5m，再匀加速 3m 至 10 km/h 到达碰撞点。VUT 需在转向开始前 2s 开启转向灯。D=10.5m(VUT=20km/h) / 28.5m(VUT=30km/h)。" data-en="Day and night test. VUT turns left; pedestrian crosses from left to right. Pedestrian accelerates 1.5m to 6.5 km/h, constant speed 1.5m, then uniformly accelerates 3m to 10 km/h to reach collision point. VUT must activate turn signal no later than 2s before steering begins. D=10.5m(VUT=20km/h) / 28.5m(VUT=30km/h).">白天和夜间测试。VUT 左转，行人从左侧向右侧横穿。行人加速 1.5m 至 6.5 km/h，匀速 1.5m，再匀加速 3m 至 10 km/h 到达碰撞点。VUT 需在转向开始前 2s 开启转向灯。D=10.5m(VUT=20km/h) / 28.5m(VUT=30km/h)。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="PTA速度 (km/h)" data-en="PTA Speed (km/h)">PTA速度 (km/h)</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th><th data-zh="距离D (m)" data-en="Distance D (m)">距离D (m)</th></tr>
+<tr><td>20 / 30</td><td data-zh="6.5 → 10 (加速)" data-en="6.5 → 10 (Accel.)">6.5 → 10 (加速)</td><td>25%</td><td>10.5 / 28.5</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPTA_LF.jpg')"><img src="scenario_images/P_CPTA_LF.jpg" alt="CPTA-LF" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CPTA-RF -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPTA-RF</span><span class="name" data-zh="车辆右转对远端行人冲突" data-en="Vehicle Right-Turn Farside Pedestrian Collision">车辆右转对远端行人冲突</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="白天和夜间测试。VUT 右转，行人横穿。VUT 转向时需开启转向灯，开启时刻不晚于转向开始前 2s。碰撞位置在 25% 处。" data-en="Day and night test. VUT turns right; pedestrian crosses. VUT must activate turn signal no later than 2s before steering begins. Collision position at 25%.">白天和夜间测试。VUT 右转，行人横穿。VUT 转向时需开启转向灯，开启时刻不晚于转向开始前 2s。碰撞位置在 25% 处。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="功能" data-en="Function">功能</th><th data-zh="转向路径" data-en="Turning Path">转向路径</th></tr>
+<tr><td>10 / 20</td><td>AEB</td><td data-zh="三阶段欧拉螺旋曲线 (详见规程)" data-en="3-Stage Euler Spiral (See Regulation)">三阶段欧拉螺旋曲线 (详见规程)</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPTA_RF.jpg')"><img src="scenario_images/P_CPTA_RF.jpg" alt="CPTA-RF" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div>
+</div></div>
+
+<!-- CPYCL -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPYCL</span><span class="name" data-zh="车对幼儿低速冲突 (3子场景)" data-en="Car-to-Young-Child Low-Speed Collision (3 Sub-scenarios)">车对幼儿低速冲突 (3子场景)</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh-html="<b>子场景1 - 起步直行：</b>VUT静止，前端距幼儿 1m，幼儿静止，起步直行。<br><b>子场景2 - 起步转弯：</b>VUT静止，距碰撞点 1m，方向盘右打满，起步转弯。<br><b>子场景3 - 转弯：</b>VUT以10km/h直行后右转，幼儿静止，碰撞位置25%。" data-en-html="<b>Sub-Scenario 1 - Start Straight:</b> VUT stationary, front end 1m from child, child stationary, start driving straight.<br><b>Sub-Scenario 2 - Start Turning:</b> VUT stationary, 1m from collision point, steering wheel full right, start turning.<br><b>Sub-Scenario 3 - Turning:</b> VUT drives straight at 10km/h then turns right, child stationary, collision position at 25%."><b>子场景1 - 起步直行：</b>VUT静止，前端距幼儿 1m，幼儿静止，起步直行。<br>
+<b>子场景2 - 起步转弯：</b>VUT静止，距碰撞点 1m，方向盘右打满，起步转弯。<br>
+<b>子场景3 - 转弯：</b>VUT以10km/h直行后右转，幼儿静止，碰撞位置25%。</div>
+<table class="params"><tr><th data-zh="子场景" data-en="Sub-Scenario">子场景</th><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="幼儿状态" data-en="Child Status">幼儿状态</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>起步直行 (CPYCL-Start)</td><td data-zh="静止起步" data-en="Start from Stop">静止起步</td><td data-zh="静止" data-en="Stationary">静止</td><td>25%</td></tr>
+<tr><td>起步转弯 (CPYCL-Start Turning)</td><td>静止起步, 右转</td><td data-zh="静止" data-en="Stationary">静止</td><td>25%</td></tr>
+<tr><td>转弯 (CPYCL-Turning)</td><td>10 km/h, 右转</td><td data-zh="静止" data-en="Stationary">静止</td><td>25%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPYCL_Start.jpg')"><img src="scenario_images/P_CPYCL_Start.jpg" alt="CPYCL 起步直行/起步转弯" loading="lazy"><span class="img-label" data-zh="图1: 起步直行/起步转弯 — 点击放大" data-en="Fig.1: Start Straight/Start Turning — Click to enlarge">图1: 起步直行/起步转弯 — 点击放大</span></div>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPYCL_Turn.jpg')"><img src="scenario_images/P_CPYCL_Turn.jpg" alt="CPYCL 转弯" loading="lazy"><span class="img-label" data-zh="图2: 转弯 — 点击放大" data-en="Fig.2: Turning — Click to enlarge">图2: 转弯 — 点击放大</span></div>
+</div></div>
+
+</div></div>
+
+<div class="cat-section">
+<div class="cat-title extended" data-zh="车对行人 · 拓展场景 (6项 · 权重30%)" data-en="Vehicle-to-Pedestrian · Extended Scenarios (6 Items · Weight 30%)">车对行人 · 拓展场景 (6项 · 权重30%)</div>
+<div class="cat-desc">拓展场景需企业提供具备 CNAS 资质的测试报告，随机抽取奇数/偶数项进行验证测试。</div>
+<div class="scenario-grid">
+
+<!-- CPFAr -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPFAr</span><span class="name" data-zh="雨天远端横穿" data-en="Farside Crossing in Rain">雨天远端横穿</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="雨天" data-en="Rain">雨天</span>
+</div>
+<div class="sc-card-body">
+<div class="desc" data-zh="雨天条件下远端行人横穿。PTA 加速至 10 km/h 横穿。VUT 以 20-60 km/h 测试。" data-en="Farside pedestrian crossing in rain. PTA accelerates to 10 km/h crossing. VUT tested at 20-60 km/h.">雨天条件下远端行人横穿。PTA 加速至 10 km/h 横穿。VUT 以 20-60 km/h 测试。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="PTA速度" data-en="PTA Speed">PTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="10 (匀加速)" data-en="10 (Uniform Accel.)">10 (匀加速)</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPFAr.jpg')"><img src="scenario_images/P_CPFAr.jpg" alt="CPFAr" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CPFC-MO -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPFC-MO</span><span class="name" data-zh="动态遮挡儿童横穿" data-en="Moving Occlusion Child Crossing">动态遮挡儿童横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="动态遮挡车辆(O-Vehicle)遮挡后儿童突然横穿。VUT 20/40/60 km/h。PTA 从 6.5 km/h 加速到 10 km/h。" data-en="Child suddenly crosses after being obscured by a moving occlusion vehicle (O-Vehicle). VUT 20/40/60 km/h. PTA accelerates from 6.5 km/h to 10 km/h.">动态遮挡车辆(O-Vehicle)遮挡后儿童突然横穿。VUT 20/40/60 km/h。PTA 从 6.5 km/h 加速到 10 km/h。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="PTA速度" data-en="PTA Speed">PTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="6.5 → 10 km/h" data-en="6.5 → 10 km/h">6.5 → 10 km/h</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPFC_MO.jpg')"><img src="scenario_images/P_CPFC_MO.jpg" alt="CPFC-MO" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CPNC-AI -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPNC-AI</span><span class="name" data-zh="行人干扰幼儿近端横穿" data-en="Adult-Interference Child Nearside Crossing">行人干扰幼儿近端横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="近端场景中有成人行人干扰，幼儿从遮挡中横穿。PTYC 加速到 6.5 km/h（匀加速）。" data-en="Adult pedestrian interference in nearside scenario; child crosses from occlusion. PTYC accelerates to 6.5 km/h (uniform acceleration).">近端场景中有成人行人干扰，幼儿从遮挡中横穿。PTYC 加速到 6.5 km/h（匀加速）。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th>PTYC速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="6.5 (匀加速)" data-en="6.5 (Uniform Accel.)">6.5 (匀加速)</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPNC_AI.jpg')"><img src="scenario_images/P_CPNC_AI.jpg" alt="CPNC-AI" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CPFC-BI -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPFC-BI</span><span class="name" data-zh="二轮车干扰儿童远端横穿" data-en="Two-Wheeler Interference Child Farside Crossing">二轮车干扰儿童远端横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="远端横穿场景中，有二轮车干扰物，儿童从遮挡中横穿。" data-en="Two-wheeler interference in farside crossing scenario; child crosses from occlusion.">远端横穿场景中，有二轮车干扰物，儿童从遮挡中横穿。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="PTA速度" data-en="PTA Speed">PTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="10 (匀加速)" data-en="10 (Uniform Accel.)">10 (匀加速)</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPFC_BI.jpg')"><img src="scenario_images/P_CPFC_BI.jpg" alt="CPFC-BI" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CPFAh -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPFAh</span><span class="name" data-zh="高速远端横穿" data-en="High-Speed Farside Crossing">高速远端横穿</span>
+  <span class="badge aeb">AEB</span><span class="badge aes">AES</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="高速条件下远端行人横穿，考察 AEB 和 AES 功能。" data-en="High-speed farside pedestrian crossing; evaluates AEB and AES functions.">高速条件下远端行人横穿，考察 AEB 和 AES 功能。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="PTA速度" data-en="PTA Speed">PTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>80 / 100</td><td>10</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPFAh.jpg')"><img src="scenario_images/P_CPFAh.jpg" alt="CPFAh" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CPLAh -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CPLAh</span><span class="name" data-zh="高速纵向冲突 (夜间)" data-en="High-Speed Longitudinal Collision (Night)">高速纵向冲突 (夜间)</span>
+  <span class="badge aeb">AEB</span><span class="badge fcw">FCW</span><span class="badge aes">AES</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="夜间高速纵向冲突，VUT 右侧邻车道 OV 遮挡。PTA 在 OV 前方，VT 切出后 VUT 暴露于行人。考察 AEB/FCW/AES。" data-en="High-speed longitudinal collision at night; OV occlusion in right adjacent lane. PTA ahead of OV; VUT exposed to pedestrian after VT cuts out. Evaluates AEB/FCW/AES.">夜间高速纵向冲突，VUT 右侧邻车道 OV 遮挡。PTA 在 OV 前方，VT 切出后 VUT 暴露于行人。考察 AEB/FCW/AES。</div>
+<table class="params"><tr><th data-zh="VUT & VT速度" data-en="VUT & VT Speed">VUT & VT速度</th><th data-zh="跟车距A(m)" data-en="Following Distance A (m)">跟车距A(m)</th><th>OV速度</th><th>VT与PTA距离B(m)</th></tr>
+<tr><td>80</td><td>30</td><td>0</td><td>49</td></tr>
+<tr><td>120</td><td>80</td><td>0</td><td>73</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CPLAh.jpg')"><img src="scenario_images/P_CPLAh.jpg" alt="CPLAh" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+</div></div>
+</div><!-- end tab-vru-ped -->
+
+<!-- ==================== VRU: TWO-WHEELER ==================== -->
+<div class="tab-content" id="tab-vru-2w">
+
+<div class="cat-section">
+<div class="cat-title" data-zh="车对二轮车 · 基础场景 (6项 · 权重70%)" data-en="Vehicle-to-Two-Wheeler · Basic Scenarios (6 Items · Weight 70%)">车对二轮车 · 基础场景 (6项 · 权重70%)</div>
+<div class="cat-desc" data-zh="使用 BTA(自行车目标)、EBTA(电动自行车目标)、STA(踏板摩托目标)。二轮车骑行者外观颜色按奇偶项抽取（蓝/白）。" data-en="Uses BTA (Bicyclist Target), EBTA (Electric Bicyclist Target), STA (Scooter Target). Two-wheeler rider appearance color selected by odd/even items (Blue/White).">使用 BTA(自行车目标)、EBTA(电动自行车目标)、STA(踏板摩托目标)。二轮车骑行者外观颜色按奇偶项抽取（蓝/白）。</div>
+<div class="scenario-grid">
+
+<!-- CBLAb -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBLAb</span><span class="name" data-zh="电动自行车纵向冲突 (夜间)" data-en="Electric Bicyclist Longitudinal Collision (Night)">电动自行车纵向冲突 (夜间)</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="夜间测试，VUT 开启近光灯。EBTA(电动自行车) 以 20 km/h 同向行驶在 VUT 前方。考察 AEB 纵向检测能力。碰撞位置 25%。" data-en="Night test, VUT uses low beam. EBTA (Electric Bicyclist) travels at 20 km/h in the same direction ahead of VUT. Evaluates AEB longitudinal detection. Collision position: 25%.">夜间测试，VUT 开启近光灯。EBTA(电动自行车) 以 20 km/h 同向行驶在 VUT 前方。考察 AEB 纵向检测能力。碰撞位置 25%。</div>
+<table class="params"><tr><th data-zh="VUT速度 (km/h)" data-en="VUT Speed (km/h)">VUT速度 (km/h)</th><th data-zh="EBTA速度 (km/h)" data-en="EBTA Speed (km/h)">EBTA速度 (km/h)</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60 / 80</td><td>20</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBLAb.jpg')"><img src="scenario_images/P_CBLAb.jpg" alt="CBLAb" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CBOA -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBOA</span><span class="name" data-zh="电动自行车斜向冲突" data-en="Electric Bicyclist Oblique Collision">电动自行车斜向冲突</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="白天测试。EBTA 从侧前方斜向穿入 VUT 行驶路径。碰撞位置 25%。" data-en="Day test. EBTA obliquely enters VUT travel path from the front-side. Collision position: 25%.">白天测试。EBTA 从侧前方斜向穿入 VUT 行驶路径。碰撞位置 25%。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="EBTA速度" data-en="EBTA Speed">EBTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60 / 80</td><td>20</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBOA.jpg')"><img src="scenario_images/P_CBOA.jpg" alt="CBOA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CBNA -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBNA</span><span class="name" data-zh="自行车近端横穿" data-en="Bicyclist Nearside Crossing">自行车近端横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="BTA(自行车)从近端横穿，50% 碰撞重叠率。VUT 20-60 km/h，BTA 15 km/h。" data-en="BTA (Bicyclist) crosses from nearside with 50% collision overlap. VUT 20-60 km/h, BTA 15 km/h.">BTA(自行车)从近端横穿，50% 碰撞重叠率。VUT 20-60 km/h，BTA 15 km/h。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="BTA速度" data-en="BTA Speed">BTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td>15</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBNA.jpg')"><img src="scenario_images/P_CBNA.jpg" alt="CBNA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CSFA -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSFA</span><span class="name" data-zh="踏板摩托远端横穿" data-en="Scooter Farside Crossing">踏板摩托远端横穿</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="STA(踏板摩托)从远端横穿，加速至 30 km/h。白天与夜间均进行测试。夜间为补充测试。碰撞位置 50%。" data-en="STA (Scooter) crosses from farside, accelerating to 30 km/h. Tested in both day and night conditions. Night serves as supplementary test. Collision position: 50%.">STA(踏板摩托)从远端横穿，加速至 30 km/h。白天与夜间均进行测试。夜间为补充测试。碰撞位置 50%。</div>
+<table class="params"><tr><th data-zh="场景" data-en="Scenario">场景</th><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>白天 AEB</td><td>20 / 40 / 60</td><td data-zh="30 (加速)" data-en="30 (Accel.)">30 (加速)</td><td>50%</td></tr>
+<tr><td>夜间 AEB</td><td>20 / 40 / 60</td><td data-zh="30 (加速)" data-en="30 (Accel.)">30 (加速)</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSFA.jpg')"><img src="scenario_images/P_CSFA.jpg" alt="CSFA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CSTA-LN -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSTA-LN</span><span class="name" data-zh="左转踏板摩托冲突" data-en="Left-Turn Scooter Collision">左转踏板摩托冲突</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 左转，STA 从对向直行。碰撞位置 50%。需在转向开始前 2s 开启转向灯。无遮挡车(O-Vehicle)。" data-en="VUT turns left; STA travels straight in opposite direction. Collision position: 50%. Turn signal must be activated at least 2s before steering begins. No occlusion vehicle (O-Vehicle).">VUT 左转，STA 从对向直行。碰撞位置 50%。需在转向开始前 2s 开启转向灯。无遮挡车(O-Vehicle)。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 30</td><td>30</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSTA_LN.jpg')"><img src="scenario_images/P_CSTA_LN.jpg" alt="CSTA-LN" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<!-- CSTA-RN -->
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSTA-RN</span><span class="name" data-zh="右转踏板摩托冲突" data-en="Right-Turn Scooter Collision">右转踏板摩托冲突</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 右转，STA 从右侧横穿。碰撞位置取决于具体几何关系。需在转向开始前 2s 开启转向灯。" data-en="VUT turns right; STA crosses from the right. Collision position depends on specific geometric relationship. Turn signal must be activated at least 2s before steering begins.">VUT 右转，STA 从右侧横穿。碰撞位置取决于具体几何关系。需在转向开始前 2s 开启转向灯。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th></tr>
+<tr><td>10 / 20</td><td>30</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSTA_RN.jpg')"><img src="scenario_images/P_CSTA_RN.jpg" alt="CSTA-RN" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+</div></div>
+
+<div class="cat-section">
+<div class="cat-title extended" data-zh="车对二轮车 · 拓展场景 (10项 · 权重30%)" data-en="Vehicle-to-Two-Wheeler · Extended Scenarios (10 Items · Weight 30%)">车对二轮车 · 拓展场景 (10项 · 权重30%)</div>
+<div class="scenario-grid">
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBLAt</span><span class="name" data-zh="电动自行车转弯切入" data-en="Electric Bicyclist Turn Cut-in">电动自行车转弯切入</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="EBTA速度" data-en="EBTA Speed">EBTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60</td><td>20</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBLAt.jpg')"><img src="scenario_images/P_CBLAt.jpg" alt="CBLAt" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBLAc</span><span class="name" data-zh="电动自行车变道切入 (夜间)" data-en="Electric Bicyclist Lane-Change Cut-in (Night)">电动自行车变道切入 (夜间)</span>
+  <span class="badge aeb">AEB</span><span class="badge night" data-zh="夜间" data-en="Night">夜间</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="EBTA速度" data-en="EBTA Speed">EBTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60</td><td>20</td><td>25%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBLAc.jpg')"><img src="scenario_images/P_CBLAc.jpg" alt="CBLAc" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBOFA</span><span class="name" data-zh="斜向遮挡横穿 (静止起步)" data-en="Oblique Occlusion Crossing (Start from Stop)">斜向遮挡横穿 (静止起步)</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="EBTA速度" data-en="EBTA Speed">EBTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td data-zh="20 (静止起步) / 40" data-en="20 (Start from Stop) / 40">20 (静止起步) / 40</td><td>20</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBOFA.jpg')"><img src="scenario_images/P_CBOFA.jpg" alt="CBOFA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBNA-AI</span><span class="name" data-zh="行人干扰自行车近端" data-en="Adult-Interference Bicyclist Nearside">行人干扰自行车近端</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="BTA速度" data-en="BTA Speed">BTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="20 → 静止" data-en="20 → Stop">20 → 静止</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBNA_AI.jpg')"><img src="scenario_images/P_CBNA_AI.jpg" alt="CBNA-AI" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSFA-BI</span><span class="name" data-zh="二轮车干扰踏板摩托" data-en="Two-Wheeler Interference Scooter">二轮车干扰踏板摩托</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="30 (加速)" data-en="30 (Accel.)">30 (加速)</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSFA_BI.jpg')"><img src="scenario_images/P_CSFA_BI.jpg" alt="CSFA-BI" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CBFA-MO</span><span class="name" data-zh="动态遮挡自行车远端" data-en="Moving Occlusion Bicyclist Farside">动态遮挡自行车远端</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="BTA速度" data-en="BTA Speed">BTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td data-zh="20 (加速)" data-en="20 (Accel.)">20 (加速)</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CBFA_MO.jpg')"><img src="scenario_images/P_CBFA_MO.jpg" alt="CBFA-MO" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSTAO-RN</span><span class="name" data-zh="右转遮挡踏板摩托" data-en="Right-Turn Occluded Scooter">右转遮挡踏板摩托</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th></tr>
+<tr><td>10 / 20</td><td>30</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSTAO_RN.jpg')"><img src="scenario_images/P_CSTAO_RN.jpg" alt="CSTAO-RN" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2S RCPf</span><span class="name" data-zh="右转远端踏板摩托" data-en="Right-Turn Farside Scooter">右转远端踏板摩托</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th></tr>
+<tr><td>10 / 20</td><td data-zh="30 (加速)" data-en="30 (Accel.)">30 (加速)</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_C2S_RCPf.jpg')"><img src="scenario_images/P_C2S_RCPf.jpg" alt="C2S RCPf" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">C2B RCPn</span><span class="name" data-zh="右转近端自行车" data-en="Right-Turn Nearside Bicyclist">右转近端自行车</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="BTA速度" data-en="BTA Speed">BTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>10 / 20</td><td>15</td><td>50%</td></tr></table>
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_C2B_RCPn.jpg')"><img src="scenario_images/P_C2B_RCPn.jpg" alt="C2B RCPn" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CSFhol</span><span class="name" data-zh="直行对向踏板摩托" data-en="Straight Head-on Scooter">直行对向踏板摩托</span>
+  <span class="badge aes">AES</span><span class="badge fcw">FCW</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 直行，STA 对向行驶，重叠率 25%。报警时刻若 TTC &lt; 1.5s 且车辆无避让动作，则终止该场景。" data-en="VUT drives straight; STA travels in opposite direction with 25% overlap. If TTC &lt; 1.5s at warning moment and vehicle takes no evasive action, the scenario is terminated.">VUT 直行，STA 对向行驶，重叠率 25%。报警时刻若 TTC &lt; 1.5s 且车辆无避让动作，则终止该场景。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="STA速度" data-en="STA Speed">STA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>60 / 80</td><td>30</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CSFhol.jpg')"><img src="scenario_images/P_CSFhol.jpg" alt="CSFhol" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+</div></div>
+</div><!-- end tab-vru-2w -->
+
+<!-- ==================== VRU: THREE-WHEELER ==================== -->
+<div class="tab-content" id="tab-vru-3w">
+<div class="cat-section">
+<div class="cat-title" data-zh="车对三轮车 · 基础场景 (3项)" data-en="Vehicle-to-Three-Wheeler · Basic Scenarios (3 Items)">车对三轮车 · 基础场景 (3项)</div>
+<div class="cat-desc" data-zh="使用 TWTA(三轮车目标物)，考察 AEB 功能。三轮车虚拟边框定义见规程 P.63。" data-en="Uses TWTA (Three-Wheeler Target) to evaluate AEB function. See regulation P.63 for three-wheeler virtual boundary definition.">使用 TWTA(三轮车目标物)，考察 AEB 功能。三轮车虚拟边框定义见规程 P.63。</div>
+<div class="scenario-grid">
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CTRc</span><span class="name" data-zh="三轮车切入追尾" data-en="Three-Wheeler Cut-in Rear Collision">三轮车切入追尾</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="TWTA 从 VUT 邻车道切入，与 VUT 同向行驶。VUT 进行 AEB 响应。" data-en="TWTA cuts in from adjacent lane, traveling in the same direction as VUT. VUT performs AEB response.">TWTA 从 VUT 邻车道切入，与 VUT 同向行驶。VUT 进行 AEB 响应。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="TWTA速度" data-en="TWTA Speed">TWTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60</td><td>30</td><td>25%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CTRc.jpg')"><img src="scenario_images/P_CTRc.jpg" alt="CTRc" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CTFA</span><span class="name" data-zh="三轮车横穿" data-en="Three-Wheeler Crossing">三轮车横穿</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="TWTA 横穿 VUT 行驶路径，从远端或近端进入。" data-en="TWTA crosses VUT travel path, entering from farside or nearside.">TWTA 横穿 VUT 行驶路径，从远端或近端进入。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="TWTA速度" data-en="TWTA Speed">TWTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>20 / 40 / 60</td><td>30</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CTFA.jpg')"><img src="scenario_images/P_CTFA.jpg" alt="CTFA" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+<div class="sc-card">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code">CTFT</span><span class="name" data-zh="三轮车转弯对撞" data-en="Three-Wheeler Turn Collision">三轮车转弯对撞</span>
+  <span class="badge aeb">AEB</span>
+</div>
+<div class="sc-card-body"><div class="desc" data-zh="VUT 转弯，TWTA 对向直行。碰撞位置 50%。" data-en="VUT turns; TWTA travels straight in opposite direction. Collision position: 50%.">VUT 转弯，TWTA 对向直行。碰撞位置 50%。</div>
+<table class="params"><tr><th data-zh="VUT速度" data-en="VUT Speed">VUT速度</th><th data-zh="TWTA速度" data-en="TWTA Speed">TWTA速度</th><th data-zh="碰撞位置" data-en="Collision Position">碰撞位置</th></tr>
+<tr><td>40 / 60</td><td>30</td><td>50%</td></tr></table>
+
+<div class="img-wrap" onclick="event.stopPropagation(); openLightbox('scenario_images/P_CTFT.jpg')"><img src="scenario_images/P_CTFT.jpg" alt="CTFT" loading="lazy"><span class="img-label" data-zh="点击放大" data-en="Click to enlarge">点击放大</span></div></div></div>
+
+</div></div>
+</div><!-- end tab-vru-3w -->
+
+<!-- ==================== SCORING ==================== -->
+<div class="tab-content" id="tab-scoring">
+
+<div class="cat-section">
+<div class="cat-title"><span data-zh="评分权重概览 — 弱势交通参与者保护 (附录P)" data-en="Scoring Overview — VRU Protection (Appendix P)">评分权重概览 — 弱势交通参与者保护 (附录P)</span></div>
+<table class="params" style="width:100%; margin-bottom:24px;">
+<tr style="background:rgba(68,46,224,0.15);">
+  <th style="width:25%;padding:8px;"><span data-zh="项目名称" data-en="Item Name">项目名称</span></th>
+  <th style="width:15%;padding:8px;"><span data-zh="场景数量" data-en="Scenario Count">场景数量</span></th>
+  <th style="width:20%;padding:8px;"><span data-zh="各项分值" data-en="Individual Score">各项分值</span></th>
+  <th style="width:20%;padding:8px;"><span data-zh="总分值" data-en="Total Score">总分值</span></th>
+  <th style="width:20%;padding:8px;"><span data-zh="权重分配" data-en="Weight Distribution">权重分配</span></th>
+</tr>
+<tr>
+  <td style="padding:8px;color:#1EEF97;font-weight:bold;"><span data-zh="车对行人冲突" data-en="Vehicle-to-Pedestrian Collision">车对行人冲突</span></td>
+  <td style="padding:8px;"><span data-zh="6基础 + 6拓展 = 12" data-en="6 Basic + 6 Extended = 12">6基础 + 6拓展 = 12</span></td>
+  <td style="padding:8px;"><span data-zh="含 CPLA 等12项" data-en="Incl. CPLA etc. 12 items">含 CPLA 等12项</span></td>
+  <td style="padding:8px;color:#1EEF97;font-size:18px;">32</td>
+  <td style="padding:8px;"><span data-zh="基础70% / 拓展30%" data-en="Basic 70% / Extended 30%">基础70% / 拓展30%</span></td>
+</tr>
+<tr>
+  <td style="padding:8px;color:#1EEF97;font-weight:bold;"><span data-zh="车对二轮车冲突" data-en="Vehicle-to-Two-Wheeler Collision">车对二轮车冲突</span></td>
+  <td style="padding:8px;"><span data-zh="6基础 + 10拓展 = 16" data-en="6 Basic + 10 Extended = 16">6基础 + 10拓展 = 16</span></td>
+  <td style="padding:8px;"><span data-zh="含 CBLAb 等16项" data-en="Incl. CBLAb etc. 16 items">含 CBLAb 等16项</span></td>
+  <td style="padding:8px;color:#1EEF97;font-size:18px;"><span data-zh="待确认" data-en="TBD">待确认</span></td>
+  <td style="padding:8px;"><span data-zh="基础70% / 拓展30%" data-en="Basic 70% / Extended 30%">基础70% / 拓展30%</span></td>
+</tr>
+<tr>
+  <td style="padding:8px;color:#1EEF97;font-weight:bold;"><span data-zh="车对三轮车冲突" data-en="Vehicle-to-Three-Wheeler Collision">车对三轮车冲突</span></td>
+  <td style="padding:8px;"><span data-zh="3基础" data-en="3 Basic">3基础</span></td>
+  <td style="padding:8px;"><span data-zh="CTRc / CTFA / CTFT" data-en="CTRc / CTFA / CTFT">CTRc / CTFA / CTFT</span></td>
+  <td style="padding:8px;color:#1EEF97;font-size:18px;"><span data-zh="待确认" data-en="TBD">待确认</span></td>
+  <td style="padding:8px;"><span data-zh="全为基础场景" data-en="All Basic Scenarios">全为基础场景</span></td>
+</tr>
+<tr>
+  <td style="padding:8px;color:#1EEF97;font-weight:bold;"><span data-zh="AES (自动紧急转向)" data-en="AES (Automatic Emergency Steering)">AES (自动紧急转向)</span></td>
+  <td style="padding:8px;"><span data-zh="CPFAh / CPLAh / CSFhol 等" data-en="CPFAh / CPLAh / CSFhol etc.">CPFAh / CPLAh / CSFhol 等</span></td>
+  <td style="padding:8px;"><span data-zh="—" data-en="—">—</span></td>
+  <td style="padding:8px;color:#1EEF97;font-size:18px;"><span data-zh="加分项" data-en="Bonus Item">加分项</span></td>
+  <td style="padding:8px;"><span data-zh="额外加分" data-en="Extra Bonus">额外加分</span></td>
+</tr>
+</table>
+
+<div class="cat-title extended" style="margin-top:32px;"><span data-zh="评分权重概览 — ADAS / 车对车 (附录Q)" data-en="Scoring Overview — ADAS / Vehicle-to-Vehicle (Appendix Q)">评分权重概览 — ADAS / 车对车 (附录Q)</span></div>
+<table class="params" style="width:100%; margin-bottom:12px;">
+<tr style="background:rgba(68,46,224,0.15);">
+  <th style="width:25%;padding:8px;"><span data-zh="项目名称" data-en="Item Name">项目名称</span></th>
+  <th style="width:15%;padding:8px;"><span data-zh="场景数量" data-en="Scenario Count">场景数量</span></th>
+  <th style="width:30%;padding:8px;"><span data-zh="测试类型" data-en="Test Type">测试类型</span></th>
+  <th style="width:30%;padding:8px;"><span data-zh="功能覆盖" data-en="Function Coverage">功能覆盖</span></th>
+</tr>
+<tr>
+  <td style="padding:8px;color:#442EE0;font-weight:bold;"><span data-zh="车对车基础场景" data-en="Vehicle-to-Vehicle Basic">车对车基础场景</span></td>
+  <td style="padding:8px;"><span data-zh="6项 (必测)" data-en="6 Items (Mandatory)">6项 (必测)</span></td>
+  <td style="padding:8px;"><span data-zh="CCRc / CCRh / CCRb / C2C SCPf / CCFT / CCRbc" data-en="CCRc / CCRh / CCRb / C2C SCPf / CCFT / CCRbc">CCRc / CCRh / CCRb / C2C SCPf / CCFT / CCRbc</span></td>
+  <td style="padding:8px;"><span data-zh="AEB + FCW + AES" data-en="AEB + FCW + AES">AEB + FCW + AES</span></td>
+</tr>
+<tr>
+  <td style="padding:8px;color:#442EE0;font-weight:bold;"><span data-zh="车对车拓展场景" data-en="Vehicle-to-Vehicle Extended">车对车拓展场景</span></td>
+  <td style="padding:8px;"><span data-zh="10项 (抽测)" data-en="10 Items (Sampling)">10项 (抽测)</span></td>
+  <td style="padding:8px;"><span data-zh="CCRsr / CCRsf / CCFhos / SCPn / SCPmo / CCFTf / LCPf / LCPn / RCPf / SCPso" data-en="CCRsr / CCRsf / CCFhos / SCPn / SCPmo / CCFTf / LCPf / LCPn / RCPf / SCPso">CCRsr / CCRsf / CCFhos / SCPn / SCPmo / CCFTf / LCPf / LCPn / RCPf / SCPso</span></td>
+  <td style="padding:8px;"><span data-zh="AEB + FCW + AES" data-en="AEB + FCW + AES">AEB + FCW + AES</span></td>
+</tr>
+<tr>
+  <td style="padding:8px;color:#442EE0;font-weight:bold;"><span data-zh="车道保持等ADAS" data-en="Lane Keeping & Other ADAS">车道保持等ADAS</span></td>
+  <td style="padding:8px;"><span data-zh="多场景" data-en="Multiple Scenarios">多场景</span></td>
+  <td style="padding:8px;"><span data-zh="LKA + ELK + DMS + BSD + DOW + RCTB + ISLS + AMAP" data-en="LKA + ELK + DMS + BSD + DOW + RCTB + ISLS + AMAP">LKA + ELK + DMS + BSD + DOW + RCTB + ISLS + AMAP</span></td>
+  <td style="padding:8px;"><span data-zh="多种ADAS功能" data-en="Multiple ADAS Functions">多种ADAS功能</span></td>
+</tr>
+</table>
+</div>
+
+<div class="cat-section" style="margin-top:32px;">
+<div class="cat-title"><span data-zh="测试结束与有效性判定条件" data-en="Test End & Validity Judgment Conditions">测试结束与有效性判定条件</span></div>
+<div class="scenario-grid">
+<div class="sc-card open">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code" data-zh="单次试验结束条件" data-en="Single Test End Conditions">单次试验结束条件</span>
+</div>
+<div class="sc-card-body" style="display:block;">
+<div class="desc" data-zh-html="1. V<sub>VUT</sub> = 0 km/h 或 V<sub>VUT</sub> ≤ V<sub>Target</sub>（纵向场景）<br>2. VUT 和目标物之间发生接触<br>3. 目标物离开 VUT 行驶路径" data-en-html="1. V<sub>VUT</sub> = 0 km/h or V<sub>VUT</sub> ≤ V<sub>Target</sub> (longitudinal scenarios)<br>2. Contact occurs between VUT and the target<br>3. Target leaves the VUT travel path">
+1. V<sub>VUT</sub> = 0 km/h 或 V<sub>VUT</sub> ≤ V<sub>Target</sub>（纵向场景）<br>
+2. VUT 和目标物之间发生接触<br>
+3. 目标物离开 VUT 行驶路径
+</div></div></div>
+<div class="sc-card open">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code" data-zh="测试场景终止条件" data-en="Test Scenario Termination Conditions">测试场景终止条件</span>
+</div>
+<div class="sc-card-body" style="display:block;">
+<div class="desc" data-zh-html="1. V<sub>VUT</sub> ≤ 40 km/h：车速减少量 &lt; 3 km/h<br>2. V<sub>VUT</sub> &gt; 40 km/h：车速减少量 &lt; 20 km/h<br>3. 拓展场景低速碰撞 → 停止高速试验<br>4. 误作用预测试中车辆对无碰撞风险目标产生紧急制动/避让<br>5. 厂商预测无性能时" data-en-html="1. V<sub>VUT</sub> ≤ 40 km/h: Speed reduction &lt; 3 km/h<br>2. V<sub>VUT</sub> &gt; 40 km/h: Speed reduction &lt; 20 km/h<br>3. Extended scenario low-speed collision → Stop high-speed tests<br>4. False-positive pre-test: vehicle produces emergency braking/evasion for non-collision-risk target<br>5. When manufacturer predicts no performance">
+1. V<sub>VUT</sub> ≤ 40 km/h：车速减少量 &lt; 3 km/h<br>
+2. V<sub>VUT</sub> &gt; 40 km/h：车速减少量 &lt; 20 km/h<br>
+3. 拓展场景低速碰撞 → 停止高速试验<br>
+4. 误作用预测试中车辆对无碰撞风险目标产生紧急制动/避让<br>
+5. 厂商预测无性能时
+</div></div></div>
+<div class="sc-card open">
+<div class="sc-card-header" onclick="this.parentElement.classList.toggle('open')">
+  <span class="code" data-zh="试验有效性判定流程" data-en="Test Validity Judgment Process">试验有效性判定流程</span>
+</div>
+<div class="sc-card-body" style="display:block;">
+<div class="desc" data-zh-html="<b>无预估结果：</b>每个试验点只开展一次试验。<br><b>有预估结果：</b>按以下流程判定：<br>1. 第一次试验 → 与预估无差异 → 最终结果<br>2. 第一次有差异 → 第二次试验 → 与预估无差异 → 最终结果<br>3. 前两次有差异 → 第三次试验 → 取无差异的两项平均<br>4. 三次皆有差异 → 中止试验，分析原因后重试<br>5. 累计5次无效 → 不再使用预估结果<br><b>差异判定：</b>速度差异 &gt; 5 km/h 或报警时间与预估不同" data-en-html="<b>No predicted result:</b> Only one test per test point.<br><b>With predicted result:</b> Judgment as follows:<br>1. First test → No difference from prediction → Final result<br>2. First test differs → Second test → No difference from prediction → Final result<br>3. First two differ → Third test → Average of two non-differing results<br>4. All three differ → Suspend test, analyze cause and retry<br>5. 5 cumulative invalid → Stop using predicted results<br><b>Difference criteria:</b> Speed difference &gt; 5 km/h or warning time differs from prediction">
+<b>无预估结果：</b>每个试验点只开展一次试验。<br>
+<b>有预估结果：</b>按以下流程判定：<br>
+1. 第一次试验 → 与预估无差异 → 最终结果<br>
+2. 第一次有差异 → 第二次试验 → 与预估无差异 → 最终结果<br>
+3. 前两次有差异 → 第三次试验 → 取无差异的两项平均<br>
+4. 三次皆有差异 → 中止试验，分析原因后重试<br>
+5. 累计5次无效 → 不再使用预估结果<br>
+<b>差异判定：</b>速度差异 &gt; 5 km/h 或报警时间与预估不同
+</div></div></div>
+</div>
+</div>
+
+</div><!-- end tab-scoring -->
+
   <div class="footer">
-    INTERNAL / CONFIDENTIAL &nbsp;|&nbsp; CSD class: 2.5 &nbsp;|&nbsp; Source: C-NCAP 2027 Management Rules &nbsp;|&nbsp; 中国汽车技术研究中心有限公司
+    <span data-zh="来源：C-NCAP 2027 管理规则 &nbsp;|&nbsp; 测试场景摘自附录P 及 附录Q" data-en="Source: C-NCAP 2027 Management Rules &nbsp;|&nbsp; Scenarios extracted from Appendix P &amp; Appendix Q">来源：C-NCAP 2027 管理规则 &nbsp;|&nbsp; 测试场景摘自附录P 及 附录Q</span>
   </div>
 </div>
+
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img" id="lightboxImg" src="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  event.target.classList.add('active');
+  updateToggleBtn();
+}
+
+function toggleAll() {
+  const activeTab = document.querySelector('.tab-content.active');
+  if (!activeTab) return;
+  const cards = activeTab.querySelectorAll('.sc-card');
+  if (cards.length === 0) return;
+  const allOpen = Array.from(cards).every(c => c.classList.contains('open'));
+  const btn = document.getElementById('toggleBtn');
+  if (allOpen) {
+    cards.forEach(card => card.classList.remove('open'));
+    btn.classList.remove('expanded');
+    btn.querySelector('.toggle-icon').textContent = '+';
+    const label = btn.querySelector('.toggle-label');
+    label.textContent = currentLang === 'zh' ? '展开全部' : 'Expand All';
+    label.dataset.zh = '展开全部';
+    label.dataset.en = 'Expand All';
+  } else {
+    cards.forEach(card => card.classList.add('open'));
+    btn.classList.add('expanded');
+    btn.querySelector('.toggle-icon').textContent = '−';
+    const label2 = btn.querySelector('.toggle-label');
+    label2.textContent = currentLang === 'zh' ? '折叠全部' : 'Collapse All';
+    label2.dataset.zh = '折叠全部';
+    label2.dataset.en = 'Collapse All';
+  }
+}
+
+function updateToggleBtn() {
+  const btn = document.getElementById('toggleBtn');
+  const activeTab = document.querySelector('.tab-content.active');
+  if (!activeTab) return;
+  const cards = activeTab.querySelectorAll('.sc-card');
+  if (cards.length === 0) {
+    btn.style.visibility = 'hidden';
+    return;
+  }
+  btn.style.visibility = 'visible';
+  const allOpen = Array.from(cards).every(c => c.classList.contains('open'));
+  if (allOpen) {
+    btn.classList.add('expanded');
+    btn.querySelector('.toggle-icon').textContent = '−';
+    const l3 = btn.querySelector('.toggle-label');
+    l3.textContent = currentLang === 'zh' ? '折叠全部' : 'Collapse All';
+    l3.dataset.zh = '折叠全部';
+    l3.dataset.en = 'Collapse All';
+  } else {
+    btn.classList.remove('expanded');
+    btn.querySelector('.toggle-icon').textContent = '+';
+    const l4 = btn.querySelector('.toggle-label');
+    l4.textContent = currentLang === 'zh' ? '展开全部' : 'Expand All';
+    l4.dataset.zh = '展开全部';
+    l4.dataset.en = 'Expand All';
+  }
+}
+
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+</script>
+<script>
+let currentLang = localStorage.getItem('c-ncap-lang') || 'zh';
+
+function updateLangBtn() {
+  document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : 'CN';
+}
+
+function toggleLang() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('c-ncap-lang', currentLang);
+  document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+  applyLang();
+  updateToggleBtn();
+  updateLangBtn();
+}
+
+function initLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  applyLang();
+  updateLangBtn();
+}
+
+function applyLang() {
+  document.querySelectorAll('[data-zh], [data-zh-html]').forEach(el => {
+    if (el.dataset.enHtml !== undefined) {
+      // Has data-en-html: swap innerHTML (for elements with child tags)
+      el.innerHTML = currentLang === 'zh' ? el.dataset.zhHtml : el.dataset.enHtml;
+    } else if (el.dataset.en !== undefined && el.children.length === 0) {
+      // Plain text leaf element
+      el.textContent = currentLang === 'zh' ? el.dataset.zh : el.dataset.en;
+    }
+    // Update title if present
+    if (el.dataset.zhTitle !== undefined) {
+      el.title = currentLang === 'zh' ? el.dataset.zhTitle : el.dataset.enTitle;
+    }
+  });
+  document.querySelectorAll('[data-zh-title]').forEach(el => {
+    if (!el.dataset.zh && !el.dataset.enHtml) {
+      el.title = currentLang === 'zh' ? el.dataset.zhTitle : el.dataset.enTitle;
+    }
+  });
+}
+
+// ---- Theme Toggle ----
+let currentTheme = localStorage.getItem('c-ncap-theme') || 'dark';
+
+const iconSun = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>';
+const iconMoon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+function applyTheme() {
+  const btn = document.getElementById('themeBtn');
+  if (currentTheme === 'light') {
+    document.body.classList.add('light-theme');
+    btn.innerHTML = iconMoon;
+    btn.title = 'Switch to dark mode';
+  } else {
+    document.body.classList.remove('light-theme');
+    btn.innerHTML = iconSun;
+    btn.title = 'Switch to light mode';
+  }
+}
+
+function toggleTheme() {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('c-ncap-theme', currentTheme);
+  applyTheme();
+}
+
+// Init on load
+document.addEventListener('DOMContentLoaded', function() {
+  applyTheme();
+  initLang(currentLang);
+  updateToggleBtn();
+});
+
+</script>
 </body>
 </html>

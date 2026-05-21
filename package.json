@@ -1,0 +1,26 @@
+{
+  "name": "test-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xueli12345/claude_test_260518.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/xueli12345/claude_test_260518/issues"
+  },
+  "homepage": "https://github.com/xueli12345/claude_test_260518#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.0",
+    "jimp": "^1.6.1",
+    "pdfjs-dist": "^4.0.379"
+  }
+}
